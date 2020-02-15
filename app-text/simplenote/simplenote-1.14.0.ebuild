@@ -10,7 +10,7 @@ DESCRIPTION="The simplest way to keep notes"
 HOMEPAGE="https://github.com/Automattic/simplenote-electron"
 SRC_URI="https://github.com/Automattic/simplenote-electron/releases/download/v${PV}/Simplenote-linux-${PV}-amd64.deb"
 
-LICENSE="GPL2"
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
@@ -20,7 +20,7 @@ DEPEND=""
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
-# RESTRICT="mirror"
+RESTRICT="mirror"
 
 S="${WORKDIR}"
 
