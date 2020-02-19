@@ -24,10 +24,27 @@ RESTRICT="mirror"
 
 S="${WORKDIR}"
 
-src_unpack() {
-	unpack_deb ${A}
-}
+#src_unpack() {
+#	unpack_deb ${A}
+#}
 
 src_install() {
-	mv * "${D}" || die
+	insinto /usr/share
+	doins -r ./usr/share/{icons,applications}
+
+	insinto /opt
+	doins -r ./opt/Simplenote
+
+	fperms 0755 /opt/Simplenote/simplenote
+
+	dosym /opt/Simplenote/simplenote /usr/bin/simplenote
+}
+pkg_postinst() {
+	xdg_desktop_database_update
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
+	xdg_icon_cache_update
 }
