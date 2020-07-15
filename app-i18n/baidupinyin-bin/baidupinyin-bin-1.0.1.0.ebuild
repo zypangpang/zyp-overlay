@@ -31,6 +31,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
+QA_PREBUILT="
+	/opt/apps/com.baidu.fcitx-baidupinyin/files/lib/*.so*
+"
+
 RESTRICT="mirror"
 
 S="${WORKDIR}"

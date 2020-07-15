@@ -4,7 +4,7 @@
 EAPI=7
 
 
-inherit meson
+inherit meson xdg-utils
 
 DESCRIPTION="Keyboard centric notes"
 HOMEPAGE="https://gabmus.gitlab.io/notorious/"
@@ -18,7 +18,11 @@ IUSE=""
 
 
 DEPEND=""
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	x11-libs/gtksourceview:4
+	gui-libs/libhandy
+"
 BDEPEND=""
 
 RESTRICT="mirror"
@@ -31,10 +35,10 @@ S="${WORKDIR}/notorious-${PV}"
 
 pkg_postinst() {
 	xdg_desktop_database_update
-	xdg_icon_cache_update
+	#xdg_icon_cache_update
 }
 
 pkg_postrm() {
 	xdg_desktop_database_update
-	xdg_icon_cache_update
+	#xdg_icon_cache_update
 }
